@@ -1,6 +1,6 @@
-module.exports = (res, codeError,  error) => {
-    res.status(codeError).json({
+module.exports = (res, error) => {
+    res.status(500).json({
         success: false,
-        message: error.message ? error.message : error
-    })
-}
+        message: error && error.message ? error.message : 'An unknown error occurred'
+    });
+};
